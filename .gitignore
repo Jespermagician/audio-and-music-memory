@@ -3,3 +3,6 @@ audio
 .mp3
 *.mp3
 .vscode
+/node_modules
+/.pnp
+.pnp.js
