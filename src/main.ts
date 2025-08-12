@@ -1,5 +1,7 @@
 // Inserting your audios here:
 // Note: the first index in each slot is the id, they arn`t automised yet, Please check tha they are unique
+console.log("Loading file...");
+
 const sounds: [string, string][] = [
     ['audio1', 'audio\\hamburgLandL.mp3'], 
     ['audio2', 'audio\\Hobbit.mp3'],
@@ -16,6 +18,12 @@ const sounds: [string, string][] = [
     ['audio13', 'audio\\HobbitWar.mp3'],
     ['audio13', 'audio\\ShoppyRonaldo.mp3'],
 ];
+
+
+if (sounds.length < 2 || !sounds[0]) {
+    throw new Error("Not enough sounds to play the game! Please add at least 2 sounds.");
+}
+
 
 // Edit the strings to change the ouput text 
 const Language = {

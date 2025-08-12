@@ -1,6 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // Inserting your audios here:
 // Note: the first index in each slot is the id, they arn`t automised yet, Please check tha they are unique
-var sounds = [
+console.log("Loading file...");
+const sounds = [
     ['audio1', 'audio\\hamburgLandL.mp3'],
     ['audio2', 'audio\\Hobbit.mp3'],
     ['audio3', 'audio\\JugendwortWyyyyldddd.mp3'],
@@ -16,8 +19,11 @@ var sounds = [
     ['audio13', 'audio\\HobbitWar.mp3'],
     ['audio13', 'audio\\ShoppyRonaldo.mp3'],
 ];
+if (sounds.length < 2 || !sounds[0]) {
+    throw new Error("Not enough sounds to play the game! Please add at least 2 sounds.");
+}
 // Edit the strings to change the ouput text 
-var Language = {
+const Language = {
     Buttons: "Guess",
     Found: "Found",
     TitleStart: "Let`s Play",
@@ -26,28 +32,25 @@ var Language = {
     TitleSelected: "erstes",
     GuessedAll: "Alle erraten!"
 };
-var AudioIdName = 'Audio'; // Not used yet
-var AudioIdCloneName = 'c'; // Tag the duplicates 
-var Selected = /** @class */ (function () {
-    function Selected() {
-    }
-    return Selected;
-}());
-var pairsAmount = sounds.length;
+const AudioId = {
+    Name: 'Audio', // Not used yet
+    CloneName: 'c', // Tag the duplicates 
+};
+class Selected {
+    static isSelected = false; // One Button selected
+    static Element; // The Selected Element, to change the atributes
+    static SongId; // Id of the selected Song (Pair)
+}
+const pairsAmount = sounds.length;
 var Found = 0; // Amount of the found pairs
 var Pairs = [];
-var selcted = false; // One Button is selected
-var SelectedElement; // The Selected Element, to change the atributes
-var SelectedSongId; // Id of the selected Song (Pair)
 var isSameButton = false; // Is the same button pressed twice
-var HeaderInfo = document.getElementById("output"); // Header Element
+const HeaderInfo = document.getElementById("output"); // Header Element
 var CurrentSongId = sounds[0][0];
 var MusicPlay = false;
-var color = /** @class */ (function () {
-    function color() {
-    }
-    color.NotGuessed = "rgb(130, 37, 37)"; // Red
-    color.DefaultHeader = "rgb(108, 117, 126)"; // White ~ Grey
-    color.Correct = "rgb(55, 120, 55)"; // Green 
-    return color;
-}());
+class color {
+    static NotGuessed = "rgb(130, 37, 37)"; // Red
+    static DefaultHeader = "rgb(108, 117, 126)"; // White ~ Grey
+    static Correct = "rgb(55, 120, 55)"; // Green 
+}
+//# sourceMappingURL=main.js.map
